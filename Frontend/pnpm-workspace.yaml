@@ -1,0 +1,10 @@
+packages:
+  - "."
+
+nodeLinker: isolated
+verifyDepsBeforeRun: false
+strictDepBuilds: false
+
+allowBuilds:
+  sharp: true
+  unrs-resolver: true

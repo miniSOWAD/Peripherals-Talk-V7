@@ -1,0 +1,55 @@
+export const apiPaths = {
+  category: {
+    list: "category/",
+    detail: (id: string | number) => `category/${id}`,
+    create: "category/",
+    update: (id: string | number) => `category/${id}`,
+    remove: (id: string | number) => `category/${id}`,
+  },
+  article: {
+    detail: (id: string | number) => `article/${id}`,
+    active: (peripheralId: string | number) => `article/active-article/${peripheralId}`,
+    create: "article/",
+    update: (id: string | number) => `article/${id}`,
+    versions: (peripheralId: string | number) => `article/${peripheralId}/all-articles`,
+    activate: (peripheralId: string | number, articleId: string | number) =>
+      `article/${peripheralId}/make-active/${articleId}`,
+    remove: (id: string | number) => `article/${id}`,
+    rate: (id: string | number) => `article/${id}/rate`,
+    isRated: (id: string | number) => `article/${id}/is-rated`,
+    bookmark: (id: string | number) => `article/${id}/toggle-bookmark`,
+  },
+  comment: {
+    list: (articleId: string | number) => `comment/${articleId}`,
+    create: (articleId: string | number) => `comment/${articleId}`,
+    reply: (commentId: string | number) => `comment/reply/${commentId}`,
+    update: (commentId: string | number) => `comment/${commentId}`,
+    remove: (commentId: string | number) => `comment/${commentId}`,
+    up: (commentId: string | number) => `comment/${commentId}/up-vote`,
+    down: (commentId: string | number) => `comment/${commentId}/down-vote`,
+    report: (commentId: string | number) => `comment/${commentId}/report`,
+    isVoted: (commentId: string | number) => `comment/is-voted/${commentId}`,
+  },
+  profile: {
+    photo: "profile/profile-photo",
+    validateUsername: "profile/validate-username",
+    all: "profile/all",
+    me: "profile/me",
+    requestEditor: "profile/request-for-editor-access",
+  },
+  admin: {
+    editorRequests: "admin/get-editor-request",
+    makeEditor: (userId: string | number) => `admin/make-editor/${userId}`,
+    revokeEditor: (userId: string | number) => `admin/revoke-editor/${userId}`,
+    suspend: (userId: string | number) => `admin/suspend-user/${userId}`,
+    unsuspend: (userId: string | number) => `admin/unsuspend-user/${userId}`,
+    reports: "admin/all-report",
+    resolveReport: (reportId: string | number) => `admin/resolve-report/${reportId}`,
+    userByComment: (commentId: string | number) =>
+      `admin/get-user-by-comment/${commentId}`,
+    resetPassword: (userId: string | number) => `admin/reset-user-password/${userId}`,
+  },
+  utility: {
+    uploadImage: "utility/upload-image",
+  },
+} as const;

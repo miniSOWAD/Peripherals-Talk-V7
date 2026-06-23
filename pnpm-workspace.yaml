@@ -1,0 +1,10 @@
+packages:
+  - "Frontend"
+
+verifyDepsBeforeRun: false
+
+allowBuilds:
+  sharp: true
+  unrs-resolver: true
+
+strictDepBuilds: false
